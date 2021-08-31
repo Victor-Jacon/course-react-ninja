@@ -1,0 +1,56 @@
+/* CSS RESET */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Open Sans'
+}
+
+h1,h2,h3,h4,p,a {
+  margin: 0px;
+  outline: none;
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* STYLING */
+
+body {
+  background-color: black;
+  color: white;
+
+  display: flex;
+}
+
+.title {
+  margin: 16px 0;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+}
+
+/* Classe dinâmica */
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}

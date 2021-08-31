@@ -1,0 +1,17 @@
+{
+  "Duvidas": {
+    "Componente de classe está deprecated?":"Não. Projetos novos não usam mais classes, mas os antigos podem continuar, eventualmente as classes vão desaparecer.",
+    "Os lifecycles como componentwillreceiveprops, e outros, estão deprecados?":"Sim",
+    "Na vida real, porque configurar o webpack e todo o boilerplate na mão, se a gente pode usar create-react-app, e outros clis?":"",
+    "Posso fazer meu react app com create-react-app, e depois buildar ele direto conforme fala a documentação ou precisa fazer de outra forma?":"",
+    "Por que aprender classes se elas estão quase legadas?":"Pra manter código legado. A única outra exceção é tratar error boundaries.",
+    "Como usar configurar e default props no meu componente?":"",
+    "Como ter pleno domínio dos 3 lifecycles usando useEffect?":""
+  },
+  "Not related": {
+    "Como hospedar mongoDB na digital ocean? Vale a pena?":"",
+    "Como hospedar node.js na digital ocean? Vale a pena?":"",
+    "Como conectar front, back e banco em produção? (MERN)":"",
+    "O vue.js é escrito com classes ou hooks?": ""
+  }
+}
