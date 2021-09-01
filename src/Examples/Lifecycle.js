@@ -1,13 +1,51 @@
 import React, { Component } from 'react'
 
+export class Timer extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      time: 0
+    }
+  }
+
+  // [Timer 1] O componentDidMount executa apenas uma vez. Por isso ao invés de usar setTimeout, usamos setInterval.
+  // [Timer 3] O setinterval vai continuar executando mesmo que o timer saia da tela. É importante sempre criar uma contrapartida de limpeza de métodos como esse, pra evitar erros e memory leaks.
+  // [Timer 4] Passo a referência do setInterval para o timer
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState({ time: this.state.time + 1 }), 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
+
+  render() {
+    return (
+      <div>
+        Timer: {this.state.time}
+        
+        <br />
+      </div>
+    )
+  }
+}
+
 export class Lifecycle extends Component {
 
   constructor() {
     super()
   }
 
+  // Executa do lado do front e do server
   componentWillMount() {
-    
+  }
+
+  // Executa apenas no front
+  componentDidMount() {
+  }
+
+  componentWillUnmount() {
   }
 
   /* 
