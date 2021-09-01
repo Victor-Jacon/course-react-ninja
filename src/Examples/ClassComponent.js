@@ -10,7 +10,8 @@ class ClassComponent extends Component {
       text: 'Fernando',
       happy: false,
       isOpen: true,
-      color: 'green' 
+      color: 'green',
+      colorMultiple: 'green'
     }
   }
 
@@ -19,6 +20,7 @@ class ClassComponent extends Component {
     return (
       <>
         <h1 className="title">Como funcionam class components</h1>
+        <p style={{marginBottom: 16}}>Visualize as mudanças de estado através do inspecionar, components  </p>
 
         {/* [Class State 2] Pra atualizar o estado usamos o setState(). Não alteramos o estado diretamente. */}
         <button
@@ -54,7 +56,15 @@ class ClassComponent extends Component {
         })}>
           {this.state.color}
         </button>
-
+        
+        <h1 style={{marginTop: 16, marginBottom: 8}}> Múltiplos botões afetando o estado </h1>
+        {/* [Class State 6] Múltiplos botões afetando o estado de uma div. Uso de key para mapear renderização. */}
+        {['red', 'green', 'blue'].map((colorMultiple) => (
+          <button key={colorMultiple} onClick={() => this.setState({ colorMultiple })}>
+            {colorMultiple}
+          </button>
+        ))}
+        <div style={{backgroundColor: this.state.colorMultiple, height: 100, width: 100, margin: 8}}> colorMultiple </div>
       </>
     )
   }
