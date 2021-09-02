@@ -6,10 +6,10 @@ import Search from './Search';
 import Userinfo from './Userinfo';
 import Repos from './Repos'
 
-const AppContent = ({ userinfo, repos, starred }) => {
+const AppContent = ({ userinfo, repos, starred, handleSearch }) => {
   return (
     <>
-      <Search />
+      <Search handleSearch={handleSearch}/>
       {/*[Stateful 1] Os !! transformam a props em boolean. Fazemos isso porque no javascript o 0 traria um retorno true e daria render por engano na tela (padrão) */}
       {!!userinfo && <Userinfo userinfo={userinfo}/>}
       {!!userinfo && <Actions />}
@@ -20,7 +20,7 @@ const AppContent = ({ userinfo, repos, starred }) => {
 }
 
 AppContent.propTypes = {
-  userinfo: propTypes.object.isRequired,
+  userinfo: propTypes.object,
   repos: propTypes.array.isRequired,
   starred: propTypes.array.isRequired
 }
