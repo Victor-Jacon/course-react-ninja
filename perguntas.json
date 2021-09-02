@@ -16,13 +16,9 @@
     "O que são container components?":"São os componentes stateful.",
     "O que são presentational components?":"São os componentes stateless. Eles servem apenas para representar as props na ui. Não manipulam estado. ",
     "O que são smart e dumb components?":"smart = são statefull então gerenciam estado. dumb = o oposto.",
-    "Quais as etapas pra dispor dados dinâmicos de uma api na tela?":"1-Na documentação da api copia a url que você vai usar no insomnia. 2-Faz requisição teste no insomnia. 3-Copia o model de dados retornado da api. 4-Cola isso dentro do objeto de estado do seu frontend. 5-Deixa temporariamente os dados mockados que vieram da requisição feita pelo insomnia dentro do seu estado. 6-Consome de forma dinâmica já usando o nome dos campos certos. 7-Substitui os dados mockados pelos dados buscados da api. (neste momento seu front precisa estar componentizado, passando as props/usando redux, os componentes devem ter seus filters, maps criados. Também é necessário já ter criadas as funções helpers que vão tratar os dados no front ."
-  },
-  "Not related": {
-    "Como hospedar mongoDB na digital ocean? Vale a pena?":"",
-    "Como hospedar node.js na digital ocean? Vale a pena?":"",
-    "Como conectar front, back e banco em produção? (MERN)":"",
-    "O vue.js é escrito com classes ou hooks?": ""
+    "Quais as etapas pra dispor dados dinâmicos de uma api na tela?":"1-Na documentação da api copia a url que você vai usar no insomnia. 2-Faz requisição teste no insomnia. 3-Copia o model de dados retornado da api. 4-Cola isso dentro do objeto de estado do seu frontend. 5-Deixa temporariamente os dados mockados que vieram da requisição feita pelo insomnia dentro do seu estado. 6-Consome de forma dinâmica já usando o nome dos campos certos. 7-Substitui os dados mockados pelos dados buscados da api. (neste momento seu front precisa estar componentizado, passando as props/usando redux, os componentes devem ter seus filters, maps criados. Também é necessário já ter criadas as funções helpers que vão tratar os dados no front .",
+    "Chamar uma api com ajax está deprecated?":"Não, porque ajax é o tipo de biblioteca. Temos a biblioteca ajax, com nome ajax. E temos outras que tb são ajax, como o axios, jquery ajax e o fetch",
+    "Onde eu faço as minhas requisições ajax?":"classes: componentDidMount. functions: useEffect "
   },
   "Outros": {
     "Na vida real, porque configurar o webpack e todo o boilerplate na mão, se a gente pode usar create-react-app, e outros clis?":"",
@@ -30,6 +26,13 @@
     "Como usar configurar e default props no meu componente?":"",
     "Como ter pleno domínio dos 3 lifecycles usando useEffect?":"",
     "Qual o sentido de aprender a manipular o dom diretamente com JS, se em produção usamos apenas react, e outros frameworks que não permitem isso?":"",
-    "Como implementar currying, compose de programação funcional no meu projeto react?":""
+    "Como implementar currying, compose de programação funcional no meu projeto react?":"",
+    "O que faz o hook useLayoutEffect?":"Ele mede o tamanho do layout."
+  },
+  "Not related": {
+    "Como hospedar mongoDB na digital ocean? Vale a pena?":"",
+    "Como hospedar node.js na digital ocean? Vale a pena?":"",
+    "Como conectar front, back e banco em produção? (MERN)":"",
+    "O vue.js é escrito com classes ou hooks?": ""
   }
 }

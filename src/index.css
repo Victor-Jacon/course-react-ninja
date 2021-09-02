@@ -54,3 +54,18 @@ button {
 .red {
   background-color: red;
 }
+
+/* STYLING - PROJETO GITHUB */
+.search {
+  margin: 8px;
+}
+
+.search input {
+  padding: 16px 8px;
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+
+  border-radius: 5px;
+  outline: none;
+}
