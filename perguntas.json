@@ -1,6 +1,6 @@
 {
   "Duvidas": {
-    "Componente de classe está deprecated?":"Não. Projetos novos não usam mais classes, mas os antigos podem continuar, eventualmente as classes vão desaparecer.",
+    "Componente de classe está deprecated?":"Mais ou menos. Projetos novos não usam mais classes, mas os antigos podem continuar, eventualmente as classes vão desaparecer.",
     "Por que aprender classes se elas estão quase legadas?":"Pra manter código legado. A única outra exceção é tratar error boundaries.",
     "O que é escopo léxico?":"É quando acessamos o escopo usando keywords como this.",
     "Qual é o fluxo de dados do react?":"Unidirecional, do parent para os children",
@@ -11,18 +11,25 @@
     "O que são uncontroled components?":"É quando ao invés de usar onChange + state, a gente deixa como um elemento html puro. Exemplo: <input /> desta forma o html gerencia o estado no proprio input. Mas a gente não consegue acessar o target.value dele.",
     "Como criar um uncontroled component que tenha valor inicial?":"usando a prop do html defaultValue. Dificilmente vais usar. Mas é assim. ",
     "O que substituiu o 'use strict' do react antigo?":"A tag React.StrictMode. Agora vc usa ela uma vez só no index.js ao invés de escrever ela no topo de todos os arquivos",
-    "Na vida real, porque configurar o webpack e todo o boilerplate na mão, se a gente pode usar create-react-app, e outros clis?":"",
-    "Posso fazer meu react app com create-react-app, e depois buildar ele direto conforme fala a documentação ou precisa fazer de outra forma?":"",
-    "Como usar configurar e default props no meu componente?":"",
-    "Como ter pleno domínio dos 3 lifecycles usando useEffect?":"",
-    "Qual o sentido de aprender a manipular o dom diretamente com JS, se em produção usamos apenas react, e outros frameworks que não permitem isso?":"",
-    "Como implementar currying, compose de programação funcional no meu projeto react?":"",
-    "":""
+    "Como funciona a arquitetura de componentes e paginas quando usamos class components?":"Geralmente a página contém o estado + Os componentes são funcionais.",
+    "O que é um componente statefull vs stateless?":"Stateful: Tem estado sendo gerenciado nele. Stateless: O oposto.",
+    "O que são container components?":"São os componentes stateful.",
+    "O que são presentational components?":"São os componentes stateless. Eles servem apenas para representar as props na ui. Não manipulam estado. ",
+    "O que são smart e dumb components?":"smart = são statefull então gerenciam estado. dumb = o oposto.",
+    "Quais as etapas pra dispor dados dinâmicos de uma api na tela?":"1-Na documentação da api copia a url que você vai usar no insomnia. 2-Faz requisição teste no insomnia. 3-Copia o model de dados retornado da api. 4-Cola isso dentro do objeto de estado do seu frontend. 5-Deixa temporariamente os dados mockados que vieram da requisição feita pelo insomnia dentro do seu estado. 6-Consome de forma dinâmica já usando o nome dos campos certos. 7-Substitui os dados mockados pelos dados buscados da api. (neste momento seu front precisa estar componentizado, passando as props/usando redux, os componentes devem ter seus filters, maps criados. Também é necessário já ter criadas as funções helpers que vão tratar os dados no front ."
   },
   "Not related": {
     "Como hospedar mongoDB na digital ocean? Vale a pena?":"",
     "Como hospedar node.js na digital ocean? Vale a pena?":"",
     "Como conectar front, back e banco em produção? (MERN)":"",
     "O vue.js é escrito com classes ou hooks?": ""
+  },
+  "Outros": {
+    "Na vida real, porque configurar o webpack e todo o boilerplate na mão, se a gente pode usar create-react-app, e outros clis?":"",
+    "Posso fazer meu react app com create-react-app, e depois buildar ele direto conforme fala a documentação ou precisa fazer de outra forma?":"",
+    "Como usar configurar e default props no meu componente?":"",
+    "Como ter pleno domínio dos 3 lifecycles usando useEffect?":"",
+    "Qual o sentido de aprender a manipular o dom diretamente com JS, se em produção usamos apenas react, e outros frameworks que não permitem isso?":"",
+    "Como implementar currying, compose de programação funcional no meu projeto react?":""
   }
 }
