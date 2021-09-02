@@ -19,6 +19,11 @@ export class App extends Component {
       userinfo: null,
       repos: [],
       starred: []
+      /* [QA INPUT 6] Também podemos habilitar e desabilitar com state:
+      searchFieldDisabled: false
+      
+      Depois de feita a busca eu podia dar setState e atualizar diretamente. Isso é recomendado quando são vários campos.
+      */
     }
   }
 
@@ -35,10 +40,29 @@ export class App extends Component {
     const value = e.target.value
     const keyCode = e.which || e.keyCode
     const ENTER = 13
+    
+    // [Dica] Para eu ver as propriedades de uma tag html eu uso o método console.dir
+    console.dir(e.target)
+
+    /* [QA INPUT 4] Usando o e.persist() nós prevenimos o react de reciclar o evento. Assim conseguimos reabilitar o botão.
+    e.persist()   
+    */
+
+    /* [QA INPUT 5] Ou podemos atribuir o target a uma variável (que vai manter uma referência persistente da mesma forma.) */
+    const target = e.target
 
     if (keyCode === ENTER) {
+      // [QA INPUT 1] Desabilito o input para que o usuário não possa digitar depois que ele tiver dado enter.
+      target.disabled = true
+      
       // [URL] Aqui eu chamo a função e passo value como parâmetro. Ao invés de passar a url direto eu puxo a url da função.
       ajax().get(this.getGitHubApiUrl(value))
+
+      /* [QA INPUT 2] 
+      .then : acontece quando o método retorna com sucesso.
+      .error() : acontece quando dá erro na request 
+      .always () : sempre executa
+      */
       .then((result) => {
         console.log(result)
         this.setState({
@@ -56,6 +80,17 @@ export class App extends Component {
           starred: []
         })
       })
+      /* [QA INPUT 3] Vamos reabilitar o botão de input
+      O react por padrão REUTILIZA os eventos por questões de performance. Então o evento é disparado normalmente mas quando ele chega aqui, o react coloca null em tudo, apaga tudo, pra ele ser reutilizado.
+      Neste caso a gente não consegue acessar o target dele para reabilita-lo normalmente (que é o que fariamos com JS puro)
+      Temos 2 formas de resolver, veja no próximo comentário.
+      
+      [QA INPUT 5] usando a solução 2, substituimos e.target pela variável target que criamos acima.
+      */
+      .always(() => {
+        target.disabled = false
+      })
+      
     }
     console.log(keyCode)
   }
