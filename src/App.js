@@ -18,7 +18,9 @@ export class App extends Component {
     this.state = {
       userinfo: null,
       repos: [],
-      starred: []
+      starred: [],
+      isFetching: false // [Fetching]
+
       /* [QA INPUT 6] Também podemos habilitar e desabilitar com state:
       searchFieldDisabled: false
       
@@ -48,12 +50,15 @@ export class App extends Component {
     e.persist()   
     */
 
-    /* [QA INPUT 5] Ou podemos atribuir o target a uma variável (que vai manter uma referência persistente da mesma forma.) */
-    const target = e.target
+    /* [QA INPUT 5] Ou podemos atribuir o target a uma variável (que vai manter uma referência persistente da mesma forma.)
+    const target = e.target */
 
     if (keyCode === ENTER) {
-      // [QA INPUT 1] Desabilito o input para que o usuário não possa digitar depois que ele tiver dado enter.
-      target.disabled = true
+      /* [QA INPUT 1] Desabilito o input para que o usuário não possa digitar depois que ele tiver dado enter.
+      target.disabled = true */
+
+      // [Fetching]
+      this.setState({ isFetching: true })
       
       // [URL] Aqui eu chamo a função e passo value como parâmetro. Ao invés de passar a url direto eu puxo a url da função.
       ajax().get(this.getGitHubApiUrl(value))
@@ -86,10 +91,13 @@ export class App extends Component {
       Temos 2 formas de resolver, veja no próximo comentário.
       
       [QA INPUT 5] usando a solução 2, substituimos e.target pela variável target que criamos acima.
-      */
       .always(() => {
         target.disabled = false
       })
+      */
+
+     // [Fetching]
+     .always(() => this.setState({ isFetching: false }))
       
     }
     console.log(keyCode)
@@ -138,6 +146,7 @@ export class App extends Component {
         userinfo={this.state.userinfo} 
         repos={this.state.repos}
         starred={this.state.starred}
+        isFetching={this.state.isFetching}
         handleSearch={(e) => this.handleSearch(e)}
         getRepos={this.getRepos('repos')}
         getFavorites={this.getRepos('starred')}

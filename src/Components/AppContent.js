@@ -6,10 +6,14 @@ import Search from './Search';
 import Userinfo from './Userinfo';
 import Repos from './Repos'
 
-const AppContent = ({ userinfo, repos, starred, handleSearch, getRepos, getFavorites }) => {
+const AppContent = ({ userinfo, repos, starred, isFetching, handleSearch, getRepos, getFavorites }) => {
   return (
     <>
-      <Search handleSearch={handleSearch}/>
+      <Search isDisabled={isFetching} handleSearch={handleSearch}/>
+
+      {/* [Fetching] Se fetching for true vai mostrar uma div escrito carregando. Poderia ser uma div com um gif também. */}
+      {isFetching && <div>Carregando...</div>}
+      
       {/*[Stateful 1] Os !! transformam a props em boolean. Fazemos isso porque no javascript o 0 traria um retorno true e daria render por engano na tela (padrão) */}
       {!!userinfo && <Userinfo userinfo={userinfo}/>}
       {!!userinfo && <Actions getRepos={getRepos} getFavorites={getFavorites}/>}
