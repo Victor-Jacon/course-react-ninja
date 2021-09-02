@@ -10,6 +10,7 @@
     "O que são controled components?":"São componentes que a gente usa onChange + state pra gerenciar o estado.",
     "O que são uncontroled components?":"É quando ao invés de usar onChange + state, a gente deixa como um elemento html puro. Exemplo: <input /> desta forma o html gerencia o estado no proprio input. Mas a gente não consegue acessar o target.value dele.",
     "Como criar um uncontroled component que tenha valor inicial?":"usando a prop do html defaultValue. Dificilmente vais usar. Mas é assim. ",
+    "O que substituiu o 'use strict' do react antigo?":"A tag React.StrictMode. Agora vc usa ela uma vez só no index.js ao invés de escrever ela no topo de todos os arquivos",
     "Na vida real, porque configurar o webpack e todo o boilerplate na mão, se a gente pode usar create-react-app, e outros clis?":"",
     "Posso fazer meu react app com create-react-app, e depois buildar ele direto conforme fala a documentação ou precisa fazer de outra forma?":"",
     "Como usar configurar e default props no meu componente?":"",
