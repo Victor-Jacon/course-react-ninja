@@ -14,10 +14,33 @@ export class Timer extends Component {
   // [Timer 4] Passo a referência do setInterval para o timer
   componentDidMount() {
     this.timer = setInterval(() => this.setState({ time: this.state.time + 1 }), 1000)
+    console.log('componentDidMount')
   }
 
   componentWillUnmount() {
     clearInterval(this.timer)
+    console.log('componentWillUnmount')
+  }
+
+    // Só executa quando passamos novas propriedades para este elemento. Aqui podemos usar setState.
+  componentWillReceiveProps (nextProps) {
+    console.log('componentWillReceiveProps', this.props, nextProps)
+  }
+
+  // Determina se o componente deve ou não ser renderizado novamente. logo ele espera um return true ou false
+  shouldComponentUpdate (nextProps, nextState) {
+    console.log('shouldComponentUpdate')
+    return true
+  }
+
+  // Executa antes do componente ser atualizado na tela. Não podemos mexer no estado aqui.
+  componentWillUpdate(nextProps, nextState) {
+    console.log('componentWillUpdate')
+  }
+
+  // Executa após a renderização do componente.
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate')
   }
 
   render() {
@@ -31,22 +54,30 @@ export class Timer extends Component {
   }
 }
 
+/* ########################################################################################################### */
+
 export class Lifecycle extends Component {
 
-  constructor() {
+  constructor () {
     super()
+    this.state = {
+      showTimer: true,
+      time: 0
+    }
   }
+
+    // Só executa quando passamos novas propriedades para este elemento.
+    componentWillReceiveProps (nextProps) {
+      console.log('componentWillReceiveProps', this.props, nextProps)
+    }
 
   // Executa do lado do front e do server
-  componentWillMount() {
-  }
+  componentWillMount() {}
 
   // Executa apenas no front
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
-  componentWillUnmount() {
-  }
+  componentWillUnmount() {}
 
   /* 
   Montando e desmontando:
@@ -66,6 +97,19 @@ export class Lifecycle extends Component {
       <>
         <div>
           <h1>Entendendo lifecycle dos componentes de classe</h1>
+
+          {/* EXEMPLO 1 - AULA 23*/}
+          {this.state.showTimer && <Timer />}
+          <button onClick={() => { this.setState({ showTimer: !this.state.showTimer })}} > 
+            Show / Hide Timer 
+          </button> {/* [Timer 2] Neste botão eu determino se o timer vai aparecer ou não. */}
+
+
+          {/* EXEMPLO 2 - AULA 23*/}
+          <Timer time={this.state.time} />
+          <button onClick={() => {this.setState({ time: this.state.time + 10 })}} > 
+            CHANGE PROPS 
+          </button> {/* [Timer 2] Neste botão eu determino se o timer vai aparecer ou não. */}
         </div>
       </>
     )
