@@ -13,8 +13,8 @@ const Actions = ({ getRepos, getFavorites }) => {
 }
 
 Actions.propTypes = {
-  getRepos: propTypes.func,
-  getFavorites: propTypes.func
+  getRepos: propTypes.func.isRequired,
+  getFavorites: propTypes.func.isRequired
 }
 
 export default Actions

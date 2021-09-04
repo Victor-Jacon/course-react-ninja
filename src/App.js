@@ -142,6 +142,8 @@ export class App extends Component {
 
   render() {
     return (
+      // [Spread Operator] Eu poderia substituir essas 4 linhas de props={this.state.xpto} por {...this.state}, neste caso ele passaria tudo. Ou seja, ele deixa passar todas as propriedades e todos os estados.
+      // [Spread Operator] Para passar array o spread operator tb funciona, fica assim: ...nomeArray. SE eu tivesse uma função de soma, e eu quisesse somar 3 numeros, tb daria, veja: array = [1,2,3]; sum(...array); Seria igual a fazer: sum(arr[0], arr[1], arr[2])
       <AppContent 
         userinfo={this.state.userinfo} 
         repos={this.state.repos}
@@ -152,7 +154,12 @@ export class App extends Component {
         getFavorites={this.getRepos('starred')}
       />
       // [Teclado 2] O this é pra referenciar a classe, e dentro da classe temos os métodos, neste caso vamos usar o handleSearch vai ser passado como props para o nosso componente search. E o valor desta props será o valor da própria função handleSearch (ambos com mesmo nome, prop e valor)
-      // [Eventos] handleSearch e o getRepos são eventos. Eles precisam ser alimentados com uma função
+      // [Eventos] handleSearch e o getRepos são eventos. Eles precisam ser alimentados com uma arrow function. A arrow function preserva o this. Se usarmos uma function aqui ela faria o this deixar de ser o componente de classe, e passaria a ser o elemento html.
+      // [Eventos] Se não quisermos usar uma arrow function como parâmetro da props a gente precisa fazer o bind do this. Ficaria por ex: this.handleSearch.bind(this); Isso é padrão pra tirar o this do html e mandar pra classe. (o problema é que o bind é bem mais lento do que usar a arrow function direto. Tem um outro jeito de fazer, veja o exemplo abaixo)
+      // [Eventos] Dessa forma abaixo (2 etapas) é mais performático. Porque ele executa apenas um vez quando o elemento é construido.
+      // [Eventos] 1-La dentro do constructor (fora do state) você pega a referência do this: this.handleSearch = this.handleSearch.bind(this)
+      // [Eventos] 2-na props, passa assim: this.handleSearch.
+      // [Eventos] Nos componentes react.CreateClass ou app extends components e outros, todos eles precisam que você especifique o escopo que você está buscando através de bind(this). Se não tiver conseguindo acessar um método, props, variável e etc, isso é pq a lógica é diferente mesmo.
     )
   }
 }
