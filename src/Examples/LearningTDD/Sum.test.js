@@ -15,3 +15,5 @@ console.assert(false, 'Mensagem')
 
 // Teste 2 - ps: imagino que com typescript eu não escreveria testes para tipos
 console.assert(typeof sum === 'function', 'sum deve ser uma função')
+
+// A ideia é fazer a implementação mais simples possível para o teste passar. Assim vc economiza tempo escrevendo testes e atinge o mesmo objetivo.
