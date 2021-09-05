@@ -30,6 +30,8 @@
     "O que faz o hook useLayoutEffect?":"Ele mede o tamanho do layout."
   },
   "Not related": {
+    "Enquete: Onde hospedar node.js?":"Vultr/heroku",
+    "Enquete: Onde hospedar mongoDB?":"Atlas",
     "Como hospedar mongoDB na digital ocean? Vale a pena?":"",
     "Como hospedar node.js na digital ocean? Vale a pena?":"",
     "Como conectar front, back e banco em produção? (MERN)":"",
