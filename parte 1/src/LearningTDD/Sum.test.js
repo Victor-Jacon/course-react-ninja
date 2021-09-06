@@ -1,9 +1,9 @@
 //Exemplos de teste [apenas para entender o conceito]
-
 const Sum = require('./Sum')
 
 console.log(Sum(1,2) === 3) // true
 console.log(Sum(1,1) === 5) // false
+
 
 
 //Exemplos com TDD

@@ -1,3 +1,4 @@
+/*
 // [JEST 1] Os parâmetros são: (nome do teste, função)
 // test e it é a mesma coisa. Vamos usar it porque é a mesma keyword de outras libs de teste.
 it('Testando jest', () => {
@@ -32,4 +33,4 @@ it('um é igual a 1', () => {
   expect(1).toBe(1)
 })
 
-//[JEST 6] Code coverage
+*/

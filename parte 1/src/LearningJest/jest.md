@@ -1,12 +1,20 @@
 [Jest]
 
 *Como instalar jest?*
-yarn add jest-cli
+1-yarn add jest-cli
+2-yarn add chai (realizar asserções)
+3-yarn add babel-core babel-jest babel-preset-es2015 babel-preset-stage-0 (integrar com es2015)
 
 *Como configurar jest?*
-A unica configuração é ir em package.json e trocar o script de test por test: jest
+1-Em package.json, troca o script de test por
+test: jest --coverage
 
-Isso é porque o jest usa convenção ao invés de configuração. Então ele sempre vai procurar seus testes em:
+O coverage permite que os testes gerem o relatório de cobertura de código.
+
+2-Ainda no package.json, adicione uma nova linha
+"test:watch": "yarn test -- --watch"
+
+O jest vai procurar seus testes em:
 Pasta: __tests__
 Qualquer arquivo que seja: nome.test.js ou nome.spec.js
 
@@ -49,5 +57,13 @@ O jest funciona com qualquer ferramenta, até com console.assert
 *Testar: ferramentas + react components*
 A gente pode escrever tests unitários para nossas ferramentas, e para nossos componentes do react, tudo na mesma ferramenta.
 
-*Dicas*
-Os comandos disponíveis para serem executados nos scripts do package.json ficam disponíveis na pasta node_modules/.bin
+*O que é o tdd?*
+O tdd é mais uma forma de pensar do que qualquer outra coisa. Você precisa primeiro escrever um teste, e depois uma implementação mínima, para o teste passar.
+
+*Dicas e boas práticas*
+1-Os comandos disponíveis para serem executados nos scripts do package.json ficam disponíveis na pasta node_modules/.bin
+2-As msgs de erro precisam ser em inglês.
+3-Quando colocamos o --coverage no nosso script do package.json, a gente passa a ter acesso a pasta coverage na raiz do projeto.
+Essa pasta tem um projetinho HTML+CSS que serve pra vc ter de forma mais visual e com mais detalhes os resultados do seu teste.
+4-O jest guarda em cache um teste já realizado, isso pode ser a razão de bugs "sem motivo". Para isso, limpe o cache do jest: yarn test --no-cache
+5-Rodando o modo interativo watch do jest, você pode apertar p e depois digitar o nome de um arquivo, desta forma, o jest mostrará os testes apenas dos arquivos que contém aquele termo pesquisado. Ele vai executar todos, porém vai filtrar pra te mostrar apenas dos termos pesquisados.
