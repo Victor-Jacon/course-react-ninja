@@ -1,5 +1,6 @@
 {
   "Duvidas": {
+    "Qual o comando yarn para instalar dependência de desenvolvimento apenas?":"yarn add --dev",
     "Componente de classe está deprecated?":"Mais ou menos. Projetos novos não usam mais classes, mas os antigos podem continuar, eventualmente as classes vão desaparecer.",
     "Por que aprender classes se elas estão quase legadas?":"Pra manter código legado. A única outra exceção é tratar error boundaries.",
     "O que é escopo léxico?":"É quando acessamos o escopo usando keywords como this.",
