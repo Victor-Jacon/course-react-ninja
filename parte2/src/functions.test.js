@@ -1,5 +1,42 @@
 const functions = require('./functions')
 
+// Testes de ciclo de vida - o beforeEach, afterEach, beforeAll, afterAll, todos estes são funções que vem do JEST por padrão.
+
+// exemplo: funções que vão rodar antes de certas funções, depois de certas funções. e etc.
+// Neste caso vamos rodar estes comandos antes de QUALQUER TESTE DESTE ARQUIVO SER EXECUTADO
+
+/*
+beforeEach(() => initDatabase());
+afterEach(() => closedDatabase())
+*/
+
+const initDatabase = () => console.log('Database Initialized');
+const closedDatabase = () => console.log('Database Closed');
+
+// Agora outro caso: Queremos rodar o init no inicio de todas as funções apenas uma vez + Rodar o closed database no final do ultimo teste.
+
+/*
+beforeAll(() => initDatabase());
+afterAll(() => closedDatabase())
+*/
+
+// Também podemos fazer isso para certos testes apenas. (ao invés de pegar todos os testes)
+const nameCheck = () => console.log('Checking Name...')
+
+describe('Checking Names', () => {
+  beforeEach(() => nameCheck());
+
+  test('User is Jeff', () => {
+    const user = 'Jeff';
+    expect(user).toBe('Jeff')
+  })
+
+  test('User is Karen', () => {
+    const user = 'Karen';
+    expect(user).toBe('Karen')
+  })
+})
+
 // Expect = qual teste será feito
 // .toBe = qual resultado o final que precisa dar, pro resultado ser true
 test('Adds 2 + 2 to equal 4', () => {
