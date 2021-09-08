@@ -23,7 +23,8 @@
     "Onde eu faço as minhas requisições ajax?":"classes: componentDidMount. functions: useEffect ",
     "Como funcionam funções IIFE em javascript?":"é uma função em JavaScript que é executada assim que definida. O objetivo dela é criar uma function closure",
     "Pra que serve uma function closure?":"É uma função com funcionalidade disponível apenas naquele escopo dela, e que as variáveis não estão visíveis globalmente.",
-    "Por que os devs usam closures?":"A ideia é poder ter varios scripts sem que eles interfiram um no outro, mesmo que eles tenham variáveis com nomes parecidos, com clouse a gente cria um escopo de métodos e variáveis que só estão disponíveis para a própria closure. O padrão de closures é muito utilizado ao fazer loops"
+    "Por que os devs usam closures?":"A ideia é poder ter varios scripts sem que eles interfiram um no outro, mesmo que eles tenham variáveis com nomes parecidos, com clouse a gente cria um escopo de métodos e variáveis que só estão disponíveis para a própria closure. O padrão de closures é muito utilizado ao fazer loops",
+    "Pra que serve o storybook?":"É uma ferramenta para criar componentes e páginas de ui"
   },
   "Outros": {
     "Na vida real, porque configurar o webpack e todo o boilerplate na mão, se a gente pode usar create-react-app, e outros clis?":"",

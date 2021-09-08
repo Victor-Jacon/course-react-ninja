@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import ajax from '@fdaciuk/ajax'
 
 // Examples
-import ClassComponent from './Examples/ClassComponent';
-import Formularios from './Examples/Formularios';
-import Lifecycle, { Timer } from './Examples/Lifecycle';
-import TesteSetState from './Examples/TesteSetState';
-import { TestingProps } from './Examples/TestingProps';
+import ClassComponent from './Examples/ReactFeatures/ClassComponent'
+import Formularios from './Examples/ReactFeatures/Formularios'
+import Lifecycle, { Timer } from './Examples/ReactFeatures/Lifecycle';
+import TesteSetState from './Examples/ReactFeatures/TesteSetState';
+import { TestingProps } from './Examples/ReactFeatures/ClassComponent';
 
 import './index.css';
 import AppContent from './Components/AppContent';

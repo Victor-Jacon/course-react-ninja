@@ -7,7 +7,7 @@ import ThirdPartyWithReact from './Components/ThirdPartyWithReact';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThirdPartyWithReact />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
