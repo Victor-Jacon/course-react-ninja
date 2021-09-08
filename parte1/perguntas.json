@@ -20,7 +20,10 @@
     "O que são smart e dumb components?":"smart = são statefull então gerenciam estado. dumb = o oposto.",
     "Quais as etapas pra dispor dados dinâmicos de uma api na tela?":"1-Na documentação da api copia a url que você vai usar no insomnia. 2-Faz requisição teste no insomnia. 3-Copia o model de dados retornado da api. 4-Cola isso dentro do objeto de estado do seu frontend. 5-Deixa temporariamente os dados mockados que vieram da requisição feita pelo insomnia dentro do seu estado. 6-Consome de forma dinâmica já usando o nome dos campos certos. 7-Substitui os dados mockados pelos dados buscados da api. (neste momento seu front precisa estar componentizado, passando as props/usando redux, os componentes devem ter seus filters, maps criados. Também é necessário já ter criadas as funções helpers que vão tratar os dados no front .",
     "Chamar uma api com ajax está deprecated?":"Não, porque ajax é o tipo de biblioteca. Temos a biblioteca ajax, com nome ajax. E temos outras que tb são ajax, como o axios, jquery ajax e o fetch",
-    "Onde eu faço as minhas requisições ajax?":"classes: componentDidMount. functions: useEffect "
+    "Onde eu faço as minhas requisições ajax?":"classes: componentDidMount. functions: useEffect ",
+    "Como funcionam funções IIFE em javascript?":"é uma função em JavaScript que é executada assim que definida. O objetivo dela é criar uma function closure",
+    "Pra que serve uma function closure?":"É uma função com funcionalidade disponível apenas naquele escopo dela, e que as variáveis não estão visíveis globalmente.",
+    "Por que os devs usam closures?":"A ideia é poder ter varios scripts sem que eles interfiram um no outro, mesmo que eles tenham variáveis com nomes parecidos, com clouse a gente cria um escopo de métodos e variáveis que só estão disponíveis para a própria closure. O padrão de closures é muito utilizado ao fazer loops"
   },
   "Outros": {
     "Na vida real, porque configurar o webpack e todo o boilerplate na mão, se a gente pode usar create-react-app, e outros clis?":"",
