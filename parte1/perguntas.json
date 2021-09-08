@@ -24,7 +24,15 @@
     "Como funcionam funções IIFE em javascript?":"é uma função em JavaScript que é executada assim que definida. O objetivo dela é criar uma function closure",
     "Pra que serve uma function closure?":"É uma função com funcionalidade disponível apenas naquele escopo dela, e que as variáveis não estão visíveis globalmente.",
     "Por que os devs usam closures?":"A ideia é poder ter varios scripts sem que eles interfiram um no outro, mesmo que eles tenham variáveis com nomes parecidos, com clouse a gente cria um escopo de métodos e variáveis que só estão disponíveis para a própria closure. O padrão de closures é muito utilizado ao fazer loops",
-    "Pra que serve o storybook?":"É uma ferramenta para criar componentes e páginas de ui"
+    "Pra que serve o storybook?":"É uma ferramenta para criar componentes e páginas de ui",
+    "Como eu configuro meu webpack pra servir arquivos html?":"Configurando o HtmlWebpackPlugin",
+    "Como eu configuro meu webpack pra servir arquivos css dentro uma tag <style>":"Configurando o raw-loader, style-loader, ou css-loader",
+    "Qual a diferença de usar o css-loader e o raw-loader":"O css-loader é indica quando vc usa no seu css: url e @import, pq ele trata os respectivos como um require do node.js",
+    "Como eu configuro meu webpack pra servir arquivos css dentro de um arquivo css comum?":"Configurando o plugin extract-text-webpack-plugin",
+    "Pra que serve o webpack dashboard?":"Ele serve pra te ajudar a ler o terminal. Quando temos várias dependências instaladas, nosso terminal vai ficar muito poluído, e aí usamos o webpack dashboard.",
+    "Como e onde eu configo o webpack dashboard?":"Usando o plugin webpack-dashboard, e ele será configurado no arquivo webpack.config.js",
+    "":"",
+    "":""
   },
   "Outros": {
     "Na vida real, porque configurar o webpack e todo o boilerplate na mão, se a gente pode usar create-react-app, e outros clis?":"",
