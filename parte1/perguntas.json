@@ -31,8 +31,10 @@
     "Como eu configuro meu webpack pra servir arquivos css dentro de um arquivo css comum?":"Configurando o plugin extract-text-webpack-plugin",
     "Pra que serve o webpack dashboard?":"Ele serve pra te ajudar a ler o terminal. Quando temos várias dependências instaladas, nosso terminal vai ficar muito poluído, e aí usamos o webpack dashboard.",
     "Como e onde eu configo o webpack dashboard?":"Usando o plugin webpack-dashboard, e ele será configurado no arquivo webpack.config.js",
-    "":"",
-    "":""
+    "Pra que serve o snazzy e como instalar?":"Ele deixa os erros do terminal mais legíveis. Instalando: yarn add --dev snazzy e depois no package.json adicione dentro de scripts: lint: standard --verbose | snazzy, e também: lint:fix:standard --fix,",
+    "Pra que serve o lint fix?":"Ele resolve typos simples. Como ponto e virgula em excesso e etc. Pra funcionar vc faz: yarn lint:fix",
+    "Pra que serve o gulp?":"O gulp é uma ferramenta para automatizar e melhorar o processo de desenvolvimento de software",
+    "Como configurar o gulp?":"O gulp em si é só uma ferramenta, então você pode dar vários usos a ela. No projeto do react ninja a gente usa o gulp para automatizar o lint, então o passo a passo está em um card do anki."
   },
   "Outros": {
     "Na vida real, porque configurar o webpack e todo o boilerplate na mão, se a gente pode usar create-react-app, e outros clis?":"",
