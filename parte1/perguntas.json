@@ -34,19 +34,22 @@
     "Pra que serve o snazzy e como instalar?":"Ele deixa os erros do terminal mais legíveis. Instalando: yarn add --dev snazzy e depois no package.json adicione dentro de scripts: lint: standard --verbose | snazzy, e também: lint:fix:standard --fix,",
     "Pra que serve o lint fix?":"Ele resolve typos simples. Como ponto e virgula em excesso e etc. Pra funcionar vc faz: yarn lint:fix",
     "Pra que serve o gulp?":"O gulp é uma ferramenta para automatizar e melhorar o processo de desenvolvimento de software",
-    "Como configurar o gulp?":"O gulp em si é só uma ferramenta, então você pode dar vários usos a ela. No projeto do react ninja a gente usa o gulp para automatizar o lint, então o passo a passo está em um card do anki."
+    "Como configurar o gulp?":"O gulp em si é só uma ferramenta, então você pode dar vários usos a ela. No projeto do react ninja a gente usa o gulp para automatizar o lint, então o passo a passo está em um card do anki.",
+    "":""
   },
   "Outros": {
+    "O que faz o hook useLayoutEffect?":"Ele mede o tamanho do layout.",
     "Na vida real, porque configurar o webpack e todo o boilerplate na mão, se a gente pode usar create-react-app, e outros clis?":"",
     "Posso fazer meu react app com create-react-app, e depois buildar ele direto conforme fala a documentação ou precisa fazer de outra forma?":"",
     "Como usar configurar e default props no meu componente?":"",
     "Como ter pleno domínio dos 3 lifecycles usando useEffect?":"",
     "Qual o sentido de aprender a manipular o dom diretamente com JS, se em produção usamos apenas react, e outros frameworks que não permitem isso?":"",
     "Como implementar currying, compose de programação funcional no meu projeto react?":"",
-    "O que faz o hook useLayoutEffect?":"Ele mede o tamanho do layout."
+    "Eu tenho um carrinho de compras estilo mercado livre, como fazer os produtos continuarem no carrinho depois que o usuário fechar o navegador, para que quando ele abra novamente, os produtos continuem lá?":"",
+    "Pra que servem os selectors do redux?":""
   },
   "Not related": {
-    "Enquete: Onde hospedar node.js?":"Vultr/heroku",
+    "Enquete: Onde hospedar node.js?":"Vultr/heroku/digital ocean + serverless: netlify, vercel",
     "Enquete: Onde hospedar mongoDB?":"Atlas",
     "Como hospedar mongoDB na digital ocean? Vale a pena?":"",
     "Como hospedar node.js na digital ocean? Vale a pena?":"",

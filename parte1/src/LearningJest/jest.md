@@ -44,8 +44,7 @@ Pra ver se tudo continua passando da forma normal.
 A diferença é que com o watch interativo, você consegue rodar testes específicos, rodar todos os testes, vc consegue personalizar quais testes realizar em sequência e outros.
 
 *Pra quem serve o jsdom?*
-Os testes que vc precisaria do browser pra executar, vc consegue 
-executar direto no browser.
+Os testes que vc precisaria do browser pra executar, vc consegue executar sem um browser.
 
 *Diferença do jsdom no jest e outras ferramentas*
 Em outras ferramentas vc precisa configurar o jsdom manualmente.
