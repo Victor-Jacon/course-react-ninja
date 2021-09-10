@@ -1,20 +1,21 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import { setCounterIncrement, setCounterDecrement } from '../store/modules/shop/actions';
+import './Button.css'
 
-const Counter = () => {
+const Button = (props) => {
 
-  const dispatch = useDispatch()
-  const { counter } = useSelector((state) => state.shop);
+  // Aqui eu extrai do fluxo de dados de props somente o que eu preciso.
+  // Ele vai receber tudo, mas assim podemos extrair só o necessário, antes de chamarmos de fato no local de uso do dado, bem interessante.
+  const { variant = 'primary', children, ...rest } = props
 
   return (
-    <div>
-      <h1>{counter}</h1>
-      <button onClick={() => dispatch(setCounterDecrement(counter))}>-</button>
-      <button onClick={() => dispatch(setCounterIncrement(counter))}>+</button>
-    </div>
+    <button className={`button ${variant}`} {...rest}>
+      {children}
+    </button>
   )
 }
+
+export default Button
+
 
 /*
 
@@ -43,5 +44,3 @@ Button.defaultProps = {
 };
 
 */
-
-export default Counter
