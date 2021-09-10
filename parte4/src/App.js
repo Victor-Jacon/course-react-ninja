@@ -1,12 +1,13 @@
 import './App.css';
 import Counter from './components/Counter';
-import Title from './stories/Title';
+import PageCounter from './pages/PageCounter';
+import PageCounterMultiplo from './pages/PageCounterMultiplo';
 
 function App() {
   return (
     <div className="App">
-      <Counter />
-      <Title />
+      <PageCounter />
+      <PageCounterMultiplo />
     </div>
   );
 }
