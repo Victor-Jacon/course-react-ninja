@@ -14,7 +14,7 @@ const PageCounterMultiplo = () => {
 
   return (
     <div>
-      {/* [ESTADO COMPARTILHADO 3] ENVIANDO ACTION DO REDUX DA PÁGINA PARA O COMPONENTE 
+      {/* [ESTADO COMPARTILHADO 4] ENVIANDO ACTION DO REDUX DA PÁGINA PARA O COMPONENTE 
       Do mesmo jeito que enviamos o objeto counter do redux, podemos enviar as actions.
       actionDecrement foi o nome que escolhi pra props, e já configurei tb no componente COunterMultiplo pra ele estar preparado para receber.
       E o valor dessa props é a action do redux que eu importei " import { setCounterIncrement, setCounterDecrement } from '../store/modules/shop/actions';  "

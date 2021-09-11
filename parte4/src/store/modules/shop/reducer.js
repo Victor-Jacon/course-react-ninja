@@ -5,6 +5,7 @@ import types from './types'
 // REDUCER 1 - Definimos um valor inicial para o counter
 const INITIAL_STATE = {
   counter: 0,
+  counterMultiplo: []
 };
 
 // REDUCER 2 - Na nossa shop definimos que o state será o objeto initial state que criamos acima. Para acessarmos os objetos faremos assim state.counter, ou state.nomeDoObjeto que queremos manipular com o reducer.
@@ -30,6 +31,30 @@ function shop (state = INITIAL_STATE, action) {
         draft.counter = draft.counter - 1
       })
     }
+    
+    case types.ADD_COUNTER: {
+      return produce(state, (draft) => {
+        console.log('ADD COUNTER')
+
+        // Precisa adicionar mais 1 counter na array. Pra serem vários objetos counter criados de forma dinamica de acordo com o tanto de vezes que o componente counter foi renderizado na tela.
+        // Como eu sei quantos counters foram renderizados?
+        draft.counterMultiplo.push(action.counter)
+      })
+    }
+
+    /*
+    case types.REMOVE_COUNTER: {
+      return produce(state, (draft) => {
+        console.log('REMOVE COUNTER')
+
+        draft.counterMultiplo.filter((counter, index) => {
+          return index !== action.index
+        })
+      })
+    }
+    */
+  
+    
 
     default:
       return state;
