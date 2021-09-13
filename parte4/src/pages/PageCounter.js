@@ -2,6 +2,7 @@ import React from 'react'
 import Counter from '../components/Counter'
 
 const PageCounter = () => {
+  
   return (
     <div>
       <h1>Todos com counters com o mesmo estado do redux (COMPARTILHADO) </h1>
@@ -13,7 +14,7 @@ const PageCounter = () => {
       Ao clicar em + e - , o dispatch é enviado para nossa store, atualizando o valor do objeto counter.
       Este objeto counter então VOLTA para o nosso contador através do useSelector, e o VALOR DE TODOS OS COUNTERS SÃO ATUALIZADOS AO MESMO TEMPO. (porque todos buscam o valor do mesmo lugar)
       */}
-      {[0,1,2,3].map((counter) => ( <Counter /> ))}
+      {[0,1,2].map((counter) => ( <Counter /> ))}
     </div>
   )
 }

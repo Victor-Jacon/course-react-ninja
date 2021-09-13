@@ -1,16 +1,18 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
+import { setCounterMultiploIncrement } from '../store/modules/shop/actions';
 
 
-const CounterMultiplo = ({ counter, actionDecrement, actionIncrement }) => {
+// Multiplo 7 - Recebe como props + popula os dados
+const CounterMultiplo = ({ counter }) => {
   
     const dispatch = useDispatch()
   
     return (
     <div>
-      <h1>{counter}</h1>
-      <button onClick={() => dispatch(actionDecrement(counter))}>-</button>
-      <button onClick={() => dispatch(actionIncrement(counter))}>+</button>
+      <h1>{counter.value}</h1>
+      <button onClick={() => alert('hi')}>-</button>
+      <button onClick={() => console.log(dispatch(setCounterMultiploIncrement(counter)))}>+</button>
     </div>
   )
 }
