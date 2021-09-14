@@ -52,22 +52,31 @@ function shop (state = INITIAL_STATE, action) {
       })
     }
     
-    // @@@RASCUNHO
+    // ADD-C 3
     case types.ADD_COUNTER: {
       return produce(state, (draft) => {
         console.log('ADD COUNTER')
 
         const newCounter = {
           id: Date.now(),
-          name: `Counter${Date.now()}`,
+          name: action.newCounter.name,
           value: 0
         }
 
-        // Precisa adicionar mais 1 counter na array. Pra serem vários objetos counter criados de forma dinamica de acordo com o tanto de vezes que o componente counter foi renderizado na tela.
-        // Como eu sei quantos counters foram renderizados?
+        // Adicionamos ao final da array para gerenciarmos o estado dele.
         draft.counterMultiplo.push(newCounter)
       })
     }    
+
+    // RM-C 3
+    case types.REMOVE_COUNTER: {
+      return produce(state, (draft) => {
+        console.log(action.counterM) // RM-C 5
+
+        // Remover da array de estado: findIndex + splice dinamico
+      })
+    }   
+
 
     default:
       return state;

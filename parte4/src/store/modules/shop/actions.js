@@ -18,12 +18,14 @@ export function setCounterMultiploDecrement(counterM) {
   return { type: types.SET_COUNTERMULTIPLO_DECREMENT, counterM }
 }
 
-export function addCounter(counter) {
-  return { type: types.ADD_COUNTER, counter }
+// ADD-C 2
+export function addCounter(newCounter) {
+  return { type: types.ADD_COUNTER, newCounter }
 }
 
-export function removeCounter(counter) {
-  return { type: types.REMOVE_COUNTER, counter }
+// RM-C 2
+export function removeCounter(counterM) {
+  return { type: types.REMOVE_COUNTER, counterM }
 }
 
 
