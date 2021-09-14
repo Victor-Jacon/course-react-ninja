@@ -28,6 +28,20 @@ export function removeCounter(counterM) {
   return { type: types.REMOVE_COUNTER, counterM }
 }
 
+// ADDTODO 2
+export function addTodo(todo){
+  return { type: types.ADD_TODO, todo}
+}
+
+// RMTODO 2
+export function removeTodo(todo){
+  return { type: types.REMOVE_TODO, todo }
+}
+
+// TOGGLETODO 2
+export function toggleTodo(todo){
+  return { type: types.TOGGLE_TODO, todo }
+}
 
 /* Saga actions
 Here you can request someone object passing their id as a paramater.

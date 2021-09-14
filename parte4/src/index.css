@@ -12,6 +12,28 @@ code {
     monospace;
 }
 
-input {
-  margin: 32px 0px 8px 0px;
+.task-list {
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  list-style:circle;
+  margin-bottom: 8px;
+
+  background-color: rgb(255, 206, 255);
+  border-radius: 10px;
+}
+
+.task-status {
+  display: flex;
+  justify-content: space-around;
+}
+
+.action-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
 }

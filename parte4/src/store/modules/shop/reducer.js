@@ -11,6 +11,10 @@ const INITIAL_STATE = {
   counterMultiplo: [
     { id: 1, name: 'counter1', value: 0 },
     { id: 2, name: 'counter2', value: 0 }
+  ],
+  todos: [
+    {id: 1, title: 'This is a task', completed: false },
+    {id: 2, title: 'this is also a task', completed: true }
   ]
 };
 
@@ -74,11 +78,39 @@ function shop (state = INITIAL_STATE, action) {
         console.log(action.counterM) // RM-C 5
 
         // Remover da array de estado: findIndex + splice dinamico
-        const index = draft.counterMultiplo.findIndex((counterMultiplo) => counterMultiplo.id === action.counterM.id)
+        const index = draft.counterMultiplo.findIndex((counterMultiplo) =>  action.counterM.id === counterMultiplo.id)
         draft.counterMultiplo.splice(index,1)
       })
     }   
 
+    // ADDTODO 3
+    case types.ADD_TODO: {
+      return produce(state, (draft) => {
+        console.log(action.todo) // ADDTODO 7
+        draft.todos.push(action.todo) // ADDTODO 8
+
+      })
+    }
+
+    // RMTODO 3
+    case types.REMOVE_TODO: {
+      return produce(state, (draft) => {
+        console.log(action.todo) // RMTODO 4
+        const index = draft.todos.findIndex((todo) => action.todo.id === state.todos.id) // RMTODO 5
+        console.log(index) // RMTODO 6
+        draft.todos.splice(index,1) // RMTODO 7
+      })
+    }
+
+    // TOGGLETODO 3
+    case types.TOGGLE_TODO: {
+      return produce(state, (draft) => {
+        // console.log(action.todo) // TOGGLETODO 4
+        const index = draft.todos.findIndex((t) => t.id === action.todo.id)
+        // console.log(index)
+        draft.todos[index].completed = !action.todo.completed
+      })
+    }
 
     default:
       return state;
