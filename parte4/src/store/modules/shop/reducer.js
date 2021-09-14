@@ -74,6 +74,8 @@ function shop (state = INITIAL_STATE, action) {
         console.log(action.counterM) // RM-C 5
 
         // Remover da array de estado: findIndex + splice dinamico
+        const index = draft.counterMultiplo.findIndex((counterMultiplo) => counterMultiplo.id === action.counterM.id)
+        draft.counterMultiplo.splice(index,1)
       })
     }   
 
