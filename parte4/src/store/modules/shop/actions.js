@@ -9,8 +9,13 @@ export function setCounterDecrement(counter) {
 }
 
 // Multiplo 2
-export function setCounterMultiploIncrement(counter) {
-  return { type: types.SET_COUNTERMULTIPLO_INCREMENT, counter }
+export function setCounterMultiploIncrement(counterM) {
+  return { type: types.SET_COUNTERMULTIPLO_INCREMENT, counterM }
+}
+
+// Multiplo-B 2
+export function setCounterMultiploDecrement(counterM) {
+  return { type: types.SET_COUNTERMULTIPLO_DECREMENT, counterM }
 }
 
 export function addCounter(counter) {

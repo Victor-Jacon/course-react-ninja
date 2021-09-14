@@ -1,5 +1,6 @@
 /* Redux 10 + Immer 1 - Importamos o immer para adicionar imutabilidade no nosso projeto, que é uma boa prática para gerenciar o estado com redux. */
 import produce from 'immer';
+import CounterMultiplo from '../../../components/CounterMultiplo';
 import types from './types'
 
 // REDUCER 1 - Definimos um valor inicial para o counter
@@ -25,23 +26,29 @@ function shop (state = INITIAL_STATE, action) {
       */
       return produce(state, (draft) => {
         // O draft neste caso é a mesma coisa que o state. Então se eu quero acessar o objeto counter dentro do initial state, eu faria: state.counter. COmo o draft é uma copia, eu faço draft.counter. 
-        console.log('increment')
         draft.counter = draft.counter + 1
       })
     }
 
     case types.SET_COUNTER_DECREMENT: {
       return produce(state, (draft) => {
-        console.log('decrement')
         draft.counter = draft.counter - 1
       })
     }
 
     // Multiplo 3
-    case types.SET_COUNTERMULTIPLE_INCREMENT: {
+    case types.SET_COUNTERMULTIPLO_INCREMENT: {
       return produce(state, (draft) => {
-        console.log('Hello')
-        
+        const index = draft.counterMultiplo.findIndex((counterMultiplo) => counterMultiplo.id === action.counterM.id)   
+        draft.counterMultiplo[index].value = action.counterM.value + 1
+      })
+    }
+
+    // Multiplo-B 3
+    case types.SET_COUNTERMULTIPLO_DECREMENT: {
+      return produce(state, (draft) => {
+        const index = draft.counterMultiplo.findIndex((counterMultiplo) => counterMultiplo.id === action.counterM.id)   
+        draft.counterMultiplo[index].value = action.counterM.value - 1
       })
     }
     
@@ -60,25 +67,10 @@ function shop (state = INITIAL_STATE, action) {
         // Como eu sei quantos counters foram renderizados?
         draft.counterMultiplo.push(newCounter)
       })
-    }
-
-    /*
-    case types.REMOVE_COUNTER: {
-      return produce(state, (draft) => {
-        console.log('REMOVE COUNTER')
-
-        draft.counterMultiplo.filter((counter, index) => {
-          return index !== action.index
-        })
-      })
-    }
-    */
-  
-    
+    }    
 
     default:
       return state;
-
 
   }
 }

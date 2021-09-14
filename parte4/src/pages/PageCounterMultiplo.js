@@ -13,8 +13,8 @@ const PageCounterMultiplo = () => {
     <div>
       <h1>Cada Counter com um Estado do Redux (SEPARADO) </h1>
       {/* Multiplo 6 */}
-      {counterMultiplo.map((counter) => ( 
-        <CounterMultiplo counter={counter}/>
+      {counterMultiplo.map((counterM, index) => ( 
+        <CounterMultiplo key={index} counterM={counterM}/>
       ))}
     </div>
   )
