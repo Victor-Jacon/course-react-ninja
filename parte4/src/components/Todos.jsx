@@ -20,44 +20,21 @@ const Todos = ({todos}) => {
     setInput('') // ADDTODO 9 [QA]
   }
 
-  const handleToggleTodo = (todo) => {
-    dispatch(toggleTodo(todo))
+  const handleToggleTodo = (todo) => dispatch(toggleTodo(todo))
+  
+  const [activeFilter, setActiveFilter] = useState('all')
+  
+  const filterDisponiveis = {
+    all: (todos) => todos,
+    completed: (todos) => todos.completed === true && true,
+    open: (todos) => todos.completed === false && true
   }
-
-  const [activeFilter, setActiveFilter] = useState('All')
-
-  const handleFilter = (activeFilter) => {
-    setActiveFilter(activeFilter)
-    console.log(activeFilter)
-  }
-
-    /*
-    const sortListBy = {
-      name: (a, b) => {
-        if (a.name > b.name) return 1;
-        if (a.name < b.name) return -1;
-        return 0;
-      },
-      rating: (a, b) => {
-        if (a.rating > b.rating) return 1;
-        if (a.rating < b.rating) return -1;
-        return 0;
-      },
-    };
-    
-    const getAll = (sort = "name") => {
-      return list.sort(sortListBy[sort]);
-    };
-    */
 
   return (
     <div>
-
       <ul>
         {todos
-        .filter(() => {
-          return todos
-        })
+        .filter(filterDisponiveis[activeFilter])
         .map((todo, index) => (
           <div className="task-list">
             <li style={{ textDecorationLine: todo.completed ? 'line-through' : 'none' }} key={index}>{todo.title}</li>
@@ -69,9 +46,9 @@ const Todos = ({todos}) => {
       </ul>
 
       <div className="task-status">
-        <a onClick={() => handleFilter('All')}>Todas</a>
-        <a onClick={() => handleFilter('Open')}>Abertas</a>
-        <a onClick={() => handleFilter('Completed')}>Finalizadas</a>
+        <a onClick={() => setActiveFilter('all')}>Todas</a>
+        <a onClick={() => setActiveFilter('open')}>Abertas</a>
+        <a onClick={() => setActiveFilter('completed')}>Finalizadas</a>
       </div>
       <div className="action-bar">
         <input value={input} onChange={(e) => setInput(e.target.value)}></input> {/* ADDTODO 5*/}
