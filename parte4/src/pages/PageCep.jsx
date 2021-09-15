@@ -16,8 +16,11 @@ const PageCep = () => {
   const [input, setInput] = useState('')
   const [itemBuscar, setItemBuscar] = useState('06233-030')
 
-  useEffect(() => {
-    const response = axios(`https://ws.apicep.com/cep.json?code=${itemBuscar}`)
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const cep = e.target.cep.value
+    console.log(e.target.cep.value)
+    const response = axios(`https://ws.apicep.com/cep.json?code=${cep}`)
     .then((response) => {
       console.log(response.data)
       setCepApi(response.data)
@@ -25,13 +28,13 @@ const PageCep = () => {
     .catch((error) => {
       alert("Ocorreu um erro ao buscar os itens")
     })
-  }, [])
+  }
 
   return (
     <div className="page-cep-container">
-      <form>
-        <input type="text" value={input} onChange={(e) => setInput(e.target.value)}/>
-        <button>BUSCAR ENDEREÇO</button>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name= 'cep' value={input} onChange={(e) => setInput(e.target.value)}/>
+        <button type="submit">BUSCAR ENDEREÇO</button>
       </form>
 
       <table>
