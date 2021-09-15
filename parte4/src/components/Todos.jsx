@@ -39,7 +39,7 @@ const Todos = ({todos}) => {
         .map((todo, index) => (
           <div className="task-list">
             {/* Styled-A2 - Passamos a props taskCompleted que nosso styled componentes está aguardando */}
-            <TaskName taskCompleted={todo.completed} key={index}>{todo.title}</TaskName>
+            <TaskName href="#" taskCompleted={todo.completed} key={index}>{todo.title}</TaskName>
             <button onClick={() => dispatch(removeTodo(todo))}>x</button> {/*RMTODO 8*/}
             <input name={index} checked={todo.completed} type="checkbox" onChange={() => handleToggleTodo(todo)} /> {/* TOGGLETODO 5 */}
           </div>
