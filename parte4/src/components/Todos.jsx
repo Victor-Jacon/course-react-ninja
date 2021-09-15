@@ -2,6 +2,7 @@ import { React, useState} from 'react'
 import { useDispatch } from 'react-redux'
 import '../index.css'
 import { addTodo, removeTodo, toggleTodo } from '../store/modules/shop/actions'
+import { TaskStatus, TaskName } from './StyledComponents'
 
 const Todos = ({todos}) => {
 
@@ -37,18 +38,20 @@ const Todos = ({todos}) => {
         .filter(filterDisponiveis[activeFilter])
         .map((todo, index) => (
           <div className="task-list">
-            <li style={{ textDecorationLine: todo.completed ? 'line-through' : 'none' }} key={index}>{todo.title}</li>
+            {/* Styled-A2 - Passamos a props taskCompleted que nosso styled componentes está aguardando */}
+            <TaskName taskCompleted={todo.completed} key={index}>{todo.title}</TaskName>
             <button onClick={() => dispatch(removeTodo(todo))}>x</button> {/*RMTODO 8*/}
             <input name={index} checked={todo.completed} type="checkbox" onChange={() => handleToggleTodo(todo)} /> {/* TOGGLETODO 5 */}
+            <button onClick={() => alert(todo.completed)}>Testando todo</button>
           </div>
         ))
         }
       </ul>
 
       <div className="task-status">
-        <a onClick={() => setActiveFilter('all')}>Todas</a>
-        <a onClick={() => setActiveFilter('open')}>Abertas</a>
-        <a onClick={() => setActiveFilter('completed')}>Finalizadas</a>
+        <TaskStatus onClick={() => setActiveFilter('all')} activeFilter={activeFilter.includes('all')}>Todas</TaskStatus>
+        <TaskStatus onClick={() => setActiveFilter('open')} activeFilter={activeFilter.includes('open')}>Abertas</TaskStatus>
+        <TaskStatus onClick={() => setActiveFilter('completed')} activeFilter={activeFilter.includes('completed')}>Finalizadas</TaskStatus>
       </div>
       <div className="action-bar">
         <input value={input} onChange={(e) => setInput(e.target.value)}></input> {/* ADDTODO 5*/}
@@ -56,8 +59,6 @@ const Todos = ({todos}) => {
       </div>
     </div>
   )
-}
-
-
+} 
 
 export default Todos
