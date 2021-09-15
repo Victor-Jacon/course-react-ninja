@@ -11,19 +11,23 @@ const PageCep = () => {
     code: '',
     district: '',
     state: '',
-    status: 1
+    status: 200,
   })
   const [input, setInput] = useState('')
-  const [itemBuscar, setItemBuscar] = useState('06233-030')
+  const [isBtnFetching, setIsBtnFetching] = useState(false)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
+    setIsBtnFetching(true)
     const cep = e.target.cep.value
-    console.log(e.target.cep.value)
+    // console.log(e.target.cep.value)
     const response = axios(`https://ws.apicep.com/cep.json?code=${cep}`)
     .then((response) => {
-      console.log(response.data)
-      setCepApi(response.data)
+      // console.log(response.data)
+      setTimeout(() => {
+        setCepApi(response.data)
+        setIsBtnFetching(false)
+      }, 5000)
     })
     .catch((error) => {
       alert("Ocorreu um erro ao buscar os itens")
@@ -34,29 +38,34 @@ const PageCep = () => {
     <div className="page-cep-container">
       <form onSubmit={handleSubmit}>
         <input type="text" name= 'cep' value={input} onChange={(e) => setInput(e.target.value)}/>
-        <button type="submit">BUSCAR ENDEREÇO</button>
+        <button type="submit" disabled={isBtnFetching}>
+          {isBtnFetching ? 'Buscando...' : 'Buscar endereço'}
+        </button>
       </form>
 
-      <table>
-        <thead>
-          <tr>
-            <td>CEP</td>
-            <td>Endereço</td>
-            <td>Bairro</td>
-            <td>Cidade</td>
-            <td>Estado</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{cepApi.code}</td>
-            <td>{cepApi.address}</td>
-            <td>{cepApi.district}</td>
-            <td>{cepApi.city}</td>
-            <td>{cepApi.state}</td>
-          </tr>
-        </tbody>
-      </table>
+      { cepApi.status === 200 ? (
+        <table>
+          <thead>
+            <tr>
+              <td>CEP</td>
+              <td>Endereço</td>
+              <td>Bairro</td>
+              <td>Cidade</td>
+              <td>Estado</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{cepApi.code}</td>
+              <td>{cepApi.address}</td>
+              <td>{cepApi.district}</td>
+              <td>{cepApi.city}</td>
+              <td>{cepApi.state}</td>
+            </tr>
+          </tbody>
+        </table>
+      ) : 'Nada para mostrar :(' }
+
     </div>
   )
 }
