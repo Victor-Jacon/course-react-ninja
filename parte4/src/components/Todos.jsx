@@ -42,7 +42,6 @@ const Todos = ({todos}) => {
             <TaskName taskCompleted={todo.completed} key={index}>{todo.title}</TaskName>
             <button onClick={() => dispatch(removeTodo(todo))}>x</button> {/*RMTODO 8*/}
             <input name={index} checked={todo.completed} type="checkbox" onChange={() => handleToggleTodo(todo)} /> {/* TOGGLETODO 5 */}
-            <button onClick={() => alert(todo.completed)}>Testando todo</button>
           </div>
         ))
         }
