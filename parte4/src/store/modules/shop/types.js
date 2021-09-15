@@ -18,6 +18,8 @@ const types = {
   REMOVE_TODO: '@shop/REMOVE_TODO', // RMTODO 1
   TOGGLE_TODO: '@shop/TOGGLE_TODO', // TOGGLETODO 1
 
+  ADD_CEP: '@shop/ADD_CEP', //ADD-CEP 1
+
   REQUEST_SOME_OBJECT: '@shop/REQUEST_SOME_OBJECT'
 }
 

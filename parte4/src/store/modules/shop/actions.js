@@ -43,6 +43,11 @@ export function toggleTodo(todo){
   return { type: types.TOGGLE_TODO, todo }
 }
 
+// ADD-CEP 2
+export function addCep(cep) {
+  return { type: types.ADD_CEP, cep }
+}
+
 /* Saga actions
 Here you can request someone object passing their id as a paramater.
 Then you can use this id to send a req to your api, or a third party api

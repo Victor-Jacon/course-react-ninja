@@ -15,7 +15,16 @@ const INITIAL_STATE = {
   todos: [
     {id: 1, title: 'This is a task', completed: false },
     {id: 2, title: 'this is also a task', completed: true }
-  ]
+  ],
+  // ADD-CEP 5
+  cepApi: {
+    address: '',
+    city: '',
+    code: '',
+    district: '',
+    state: '',
+    status: 200,
+  }
 };
 
 // REDUCER 2 - Na nossa shop definimos que o state será o objeto initial state que criamos acima. Para acessarmos os objetos faremos assim state.counter, ou state.nomeDoObjeto que queremos manipular com o reducer.
@@ -109,6 +118,14 @@ function shop (state = INITIAL_STATE, action) {
         const index = draft.todos.findIndex((t) => t.id === action.todo.id)
         // console.log(index)
         draft.todos[index].completed = !action.todo.completed
+      })
+    }
+    // ADD-CEP 3
+    case types.ADD_CEP: {
+      return produce(state, (draft) => {
+        // console.log('ADD CEP') // ADD-CEP 4
+        // console.log(action.cep) // ADD-CEP 6
+        draft.cepApi = action.cep // ADD-CEP 7
       })
     }
 

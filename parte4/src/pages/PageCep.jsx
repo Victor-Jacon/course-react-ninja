@@ -1,23 +1,24 @@
 import { React, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import '../index.css'
+
+// redux
+import { addCep } from '../store/modules/shop/actions'
 
 
 const PageCep = () => {
 
-  const [cepApi, setCepApi] = useState({
-    address: '',
-    city: '',
-    code: '',
-    district: '',
-    state: '',
-    status: 200,
-  })
+  const dispatch = useDispatch()
+
+  const { cepApi } = useSelector(state => state.shop) 
+
   const [input, setInput] = useState('')
   const [isBtnFetching, setIsBtnFetching] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    
     setIsBtnFetching(true)
     const cep = e.target.cep.value
     // console.log(e.target.cep.value)
@@ -25,9 +26,9 @@ const PageCep = () => {
     .then((response) => {
       // console.log(response.data)
       setTimeout(() => {
-        setCepApi(response.data)
+        dispatch(addCep(response.data))
         setIsBtnFetching(false)
-      }, 5000)
+      }, 1)
     })
     .catch((error) => {
       alert("Ocorreu um erro ao buscar os itens")
