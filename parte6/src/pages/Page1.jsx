@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import Play from '../components/Play'
+import VideoSingle from '../components/VideoSingle'
+import VideosList from '../components/VideosList'
 
 const Page1 = () => {
   return (
@@ -10,16 +11,8 @@ const Page1 = () => {
       </Header>
 
       <Main>
-        <VideosList>
-          {Array.from({ length: 10 }).map((item, index) => (
-            <Video key={index}>
-              <VideoThumb>
-                <PlayStyled />
-              </VideoThumb>
-              <VideoTitle>video.titulo</VideoTitle>
-            </Video>
-          ))}
-        </VideosList>
+        <VideoSingle />
+        <VideosList />
       </Main>
 
       <Footer>
@@ -52,34 +45,6 @@ const Main = styled.main`
   min-height: calc(100% - ${headerHeight} - ${footerHeight});
 `
 
-const VideosList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
-
-const Video = styled.section`
-  flex: 1 1 300px;
-  margin: 0 5px 5px;
-`
-
-const VideoThumb = styled.div`
-  border: 1px solid #999;
-  height: 100px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const PlayStyled = styled(Play)`
-  fill: #999;
-  width: 50px;
-  height: 50px;
-`
-
-const VideoTitle = styled.h2`
-  font-size: 18px;
-`
 
 const Footer = styled.footer`
   height: ${footerHeight};
