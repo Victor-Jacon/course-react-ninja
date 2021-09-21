@@ -4,7 +4,7 @@ import { React, useEffect, useState } from 'react'
 import { db, firebaseApp } from '../firebase'
 
 // [Firebase Config 6] Importamos os métodos para realizarmos consultas
-import { collection, doc, getDocs, setDoc, updateDoc, serverTimestamp } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc, updateDoc, serverTimestamp, deleteDoc, deleteField } from "firebase/firestore";
 
 // Components
 import styled, { createGlobalStyle } from 'styled-components'
@@ -15,15 +15,16 @@ const Page1 = () => {
 
   const [videosFirebase, setVideosFirebase] = useState([])
 
+  // [Firebase Testes 0] Pegando todos os documents dentro da collection videos
   async function getVideos () {
-      const videosCol = collection(db, 'videos');
-      // console.log('videosCol'); console.log(videosCol)
-      const videosSnapshot = await getDocs(videosCol);
-      // console.log('videosSnapshot'); console.log(videosSnapshot)
+    const videosCol = collection(db, 'videos');
+    // console.log('videosCol'); console.log(videosCol)
+    const videosSnapshot = await getDocs(videosCol);
+    // console.log('videosSnapshot'); console.log(videosSnapshot)
       const videosList = videosSnapshot.docs.map((doc) => doc.data());
       console.log('videosList'); console.log(videosList)
       return videosList
-    }
+  }
 
   // [Firebase Testes A] Pegando referência de uma coleção do firebase
   async function testeCollectionRef () {
@@ -72,12 +73,12 @@ const Page1 = () => {
 
   // [Firebase Testes f] Criando uma coleção no root
   const createCollection = async () => {
-    const newDocReference = doc(db, 'users', 'victor jacon') // Pega a referência
+    const newDocReference = doc(db, 'users', 'willian frossard') // Pega a referência
 
     const newDocData = { // Valores que serão salvos
       id: Date.now(),
-      username: 'victor jacon',
-      role: 'front end developer'
+      username: 'willian frossard',
+      role: 'wordpress developer'
     }
 
     await setDoc(newDocReference, newDocData)
@@ -138,6 +139,26 @@ const Page1 = () => {
     console.log('update multiple A')
   }
 
+  // [Firebase Testes i] Deletar 1 documento.
+  // Obs: O firebase não deleta as subcoleções de um documento deletado. Vc precisa deletar isso manualmente usando a exclusão de coleções.
+  const deleteDoc1 = async () => {
+    const docReference = doc(db, 'users', 'willian frossard') // Pega a referência
+
+    await deleteDoc(docReference)
+    console.log('delete document')
+  }
+
+  // [Firebase Testes j] Deletar 1 campo
+  const deleteField1 = async () => {
+    const docReference = doc(db, 'users', 'willian frossard') // Pega a referência
+    const fieldReference = {
+      role: deleteField()
+    }
+
+    await updateDoc(docReference, fieldReference)
+    console.log('delete field')
+  }
+
 
   return (
     <Container>
@@ -154,7 +175,7 @@ const Page1 = () => {
         &copy; 2018
       </Footer>
 
-      <button onClick={() => updateDocMultiple()}>
+      <button onClick={() => deleteField1()}>
         Ver valor videos
       </button>
     </Container>
