@@ -1,16 +1,41 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector, useDispatch } from 'react-redux'
+import { addVideo } from '../store/modules/shop/actions';
 
 const RegisterVideo = () => {
+
+  const dispatch = useDispatch();
+  const { videos } = useSelector((state) => state.shop);
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    const { id, title, url } = e.target
+
+    const newVideo = {
+      id: id.value,
+      title: title.value,
+      url: url.value
+    }
+
+    console.log(newVideo)
+
+    dispatch(addVideo(newVideo))
+  }
+
   return (
-    <Form>
+    <Form onSubmit={onSubmit}>
       <h2>Cadastrar vídeo</h2>
 
-      <label htmlFor="id">Id do vídeo:</label>
+      <label htmlFor="id">ID</label>
       <Input type="text" id='id' name='id'/>
 
-      <label htmlFor="title">Título do vídeo</label>
+      <label htmlFor="title">Título</label>
       <Input type="text" id='title' name='title'/>
+
+      <label htmlFor="url">URL</label>
+      <Input type="text" id='url' name='url'/>
 
       <Button type='submit'>Cadastrar</Button>
     </Form>

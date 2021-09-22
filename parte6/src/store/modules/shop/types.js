@@ -5,8 +5,7 @@ Pra resolver isso, criamos o arquivo types.js, que vai conter
 */
 
 const types = {
-  SET_COUNTER_INCREMENT: '@shop/SET_COUNTER_INCREMENT',
-  
+  ADD_VIDEO: '@shop/ADD_VIDEO',
 
   REQUEST_SOME_OBJECT: '@shop/REQUEST_SOME_OBJECT'
 }

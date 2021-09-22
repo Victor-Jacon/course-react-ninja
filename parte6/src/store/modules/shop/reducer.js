@@ -4,7 +4,7 @@ import types from './types'
 
 // REDUCER 1 - Definimos um valor inicial para o counter
 const INITIAL_STATE = {
-  counter: 0,
+  videos: []
 };
 
 // REDUCER 2 - Na nossa shop definimos que o state será o objeto initial state que criamos acima. Para acessarmos os objetos faremos assim state.counter, ou state.nomeDoObjeto que queremos manipular com o reducer.
@@ -12,9 +12,16 @@ function shop (state = INITIAL_STATE, action) {
 
   switch (action.type) {
 
-    case types.SET_COUNTER_DECREMENT: {
+    case types.ADD_VIDEO: {
       return produce(state, (draft) => {
-        draft.counter = draft.counter - 1
+        // Para criar o nome do objeto de forma dinâmica usamos a sintaxe abaixo.
+        // [action.video.id] = {  }
+        const newVideo = {
+          id: action.video.id,
+          title: action.video.title,
+          url: action.video.url
+        }
+        draft.videos.push(newVideo)
       })
     }
 

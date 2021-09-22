@@ -1,7 +1,7 @@
 import types from './types';
 
-export function setCounterIncrement(counter) {
-  return { type: types.SET_COUNTER_INCREMENT, counter }
+export function addVideo(video) {
+  return { type: types.ADD_VIDEO, video }
 }
 
 /* Saga actions
