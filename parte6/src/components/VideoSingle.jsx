@@ -9,15 +9,12 @@ const VideoSingle = () => {
 
   const ytbIdExtractor = (video) => {
     // console.log(video.url)
-
     let ytbVideoIdStart = video.url.search('v=') // Vai encontrar na URL a partir de onde é o parâmetro ID
     ytbVideoIdStart = ytbVideoIdStart + 2 // Vai adicionar + 2 ao index do ytbVideoId, para que ele extraia apenas o id, sem pegar a marcação do parâmetro
     // console.log(ytbVideoIdStart)
-
     let ytbVideoIdEnd = video.url.search('&')
     ytbVideoIdEnd = ytbVideoIdEnd - ytbVideoIdStart
     // console.log(ytbVideoIdEnd)
-
     const ytbIdOnly = video.url.substr(ytbVideoIdStart, ytbVideoIdEnd)
     return ytbIdOnly
   }

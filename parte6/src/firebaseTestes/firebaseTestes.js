@@ -2,10 +2,10 @@
 import { db, firebaseApp } from '../firebase'
 
 // [Firebase Config 6] Importamos os métodos para realizarmos consultas
-import { collection, doc, getDocs, setDoc, updateDoc, serverTimestamp, deleteDoc, deleteField } from "firebase/firestore";
+import { query, orderBy, limit, collection, doc, getDocs, setDoc, updateDoc, serverTimestamp, deleteDoc, deleteField, where } from "firebase/firestore";
 
 // [Firebase Testes 0] Pegando todos os documents dentro da collection videos
-  async function getVideos () {
+  export async function getVideos1 () {
     const videosCol = collection(db, 'videos');
     // console.log('videosCol'); console.log(videosCol)
     const videosSnapshot = await getDocs(videosCol);
@@ -146,4 +146,27 @@ import { collection, doc, getDocs, setDoc, updateDoc, serverTimestamp, deleteDoc
 
     await updateDoc(docReference, fieldReference)
     console.log('delete field')
+  }
+
+  // [Firebase Testes k] GET de dados + Where (buscando um objeto que o título seja igual a Heaven is Hell)
+  export const getVideoByTitle = async (title) => {
+    console.log('get top rated 3: ok')
+    const videosRef = collection(db, 'videos');
+    const q = query(videosRef, where("title", "==", title))
+    
+    const querySnapshot = await getDocs(q)
+    const videosList = querySnapshot.docs.map((doc) => doc.data());
+    
+    console.log(videosList)
+    return videosList
+  }
+
+  export const getVideoAndSortByRating = async () => {
+    const videosRef = collection(db, 'videos')
+    const q = query(videosRef, orderBy('rating', 'desc'), limit(3))
+
+    const querySnapshop = await getDocs(q)
+    const videosList = querySnapshop.docs.map((doc) => doc.data())
+    console.log(videosList)
+    return videosList
   }

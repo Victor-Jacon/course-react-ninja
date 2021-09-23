@@ -11,8 +11,9 @@ const INITIAL_STATE = {
   currentVideo: {
     id: 'yellowbrick1',
     title: 'Música de Estudo para Concentração',
-    url: 'https://www.youtube.com/watch?v=WPni755-Krg&ab_channel=YellowBrickCinema-RelaxingMusic'
-  }
+    url: 'https://www.youtube.com/watch?v=WPni755-Krg&ab_channel=YellowBrickCinema-RelaxingMusic',
+    rating: 5
+  },
 };
 
 // REDUCER 2 - Na nossa shop definimos que o state será o objeto initial state que criamos acima. Para acessarmos os objetos faremos assim state.counter, ou state.nomeDoObjeto que queremos manipular com o reducer.

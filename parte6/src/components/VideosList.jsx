@@ -5,7 +5,8 @@ import Play from '../components/Play'
 
 // [Firebase]
 import { db, firebaseApp } from '../firebase'
-import { collection, doc, getDocs, setDoc, updateDoc, serverTimestamp, deleteDoc, deleteField } from "firebase/firestore";
+import { query, orderBy, collection, doc, getDocs, setDoc, updateDoc, serverTimestamp, deleteDoc, deleteField } from "firebase/firestore";
+import { getVideoByTitle, getVideoAndSortByRating } from '../firebaseTestes/firebaseTestes'
 
 // [Redux]
 import { playNewVideo } from '../store/modules/shop/actions'
@@ -18,13 +19,13 @@ const VideosList = () => {
 
   // Firebase
   async function getVideos() {
-    const videosCol = collection(db, 'videos');
-    // console.log('videosCol'); console.log(videosCol)
-    const videosSnapshot = await getDocs(videosCol);
-    // console.log('videosSnapshot'); console.log(videosSnapshot)
-      const videosList = videosSnapshot.docs.map((doc) => doc.data());
-      // console.log('videosList'); console.log(videosList)
-      return videosList
+    const videosRef = collection(db, 'videos')
+    const q = query(videosRef, orderBy('rating', 'desc'))
+
+    const querySnapshop = await getDocs(q)
+    const videosList = querySnapshop.docs.map((doc) => doc.data())
+    console.log(videosList)
+    return videosList
   }
 
   useEffect(() => {
