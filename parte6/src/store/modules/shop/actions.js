@@ -8,6 +8,18 @@ export function addVideo(video) {
 Here you can request someone object passing their id as a paramater.
 Then you can use this id to send a req to your api, or a third party api
 */
-export function requestSomeObject(id) {
-  return { type: types.REQUEST_SOME_OBJECT, id }
+export function createVideo(video) {
+  return { type: types.CREATE_VIDEO, video }
+}
+
+export function openForm() {
+  return { type: types.OPEN_FORM }
+}
+
+export function closeForm() {
+  return { type: types.CLOSE_FORM }
+}
+
+export function playNewVideo(newVideo) {
+  return { type: types.PLAY_NEW_VIDEO, newVideo }
 }

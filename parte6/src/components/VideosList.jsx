@@ -1,22 +1,66 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import Play from '../components/Play'
 
+// [Firebase]
+import { db, firebaseApp } from '../firebase'
+import { collection, doc, getDocs, setDoc, updateDoc, serverTimestamp, deleteDoc, deleteField } from "firebase/firestore";
+
+// [Redux]
+import { playNewVideo } from '../store/modules/shop/actions'
 
 const VideosList = () => {
+
+  const [movieList, setMovieList] = useState([])
+  const dispatch = useDispatch()
+  const { currentVideo } = useSelector(state => state.shop)
+
+  // Firebase
+  async function getVideos() {
+    const videosCol = collection(db, 'videos');
+    // console.log('videosCol'); console.log(videosCol)
+    const videosSnapshot = await getDocs(videosCol);
+    // console.log('videosSnapshot'); console.log(videosSnapshot)
+      const videosList = videosSnapshot.docs.map((doc) => doc.data());
+      // console.log('videosList'); console.log(videosList)
+      return videosList
+  }
+
+  useEffect(() => {
+    getVideos()
+    .then((updatedVideos) => setMovieList(updatedVideos))
+  }, [])
+
+  // update currentVideo
+  const saveIdOfClickedVideo = (movie) => {
+    // console.log(movie)
+    dispatch(playNewVideo(movie))
+  }
+
   return (
-    <Container>
-      {Array.from({ length: 10 }).map((item, index) => (
-        <Video key={index}>
-          <VideoThumb>
-            <PlayStyled />
-          </VideoThumb>
-          <VideoTitle>video.titulo</VideoTitle>
-        </Video>
-      ))}
+    <Container> 
+
+      { movieList.map((movie, index) => (
+          <Video key={movie.id}>
+            <VideoLink href="#single" onClick={() => saveIdOfClickedVideo(movie)}>
+              <VideoThumb>
+                <PlayStyled />
+              </VideoThumb>
+              <VideoTitle>
+                {movie.title}
+              </VideoTitle>
+            </VideoLink>
+          </Video>
+        ))}
+
     </Container>
   )
 }
+
+const VideoLink = styled.a`
+  color: inherit;
+`
 
 const PlayStyled = styled(Play)`
   fill: #999;

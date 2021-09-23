@@ -6,8 +6,12 @@ Pra resolver isso, criamos o arquivo types.js, que vai conter
 
 const types = {
   ADD_VIDEO: '@shop/ADD_VIDEO',
+  CREATE_VIDEO: '@shop/CREATE_VIDEO',
 
-  REQUEST_SOME_OBJECT: '@shop/REQUEST_SOME_OBJECT'
+  OPEN_FORM: '@shop/OPEN_FORM',
+  CLOSE_FORM: '@shop/CLOSE_FORM',
+  
+  PLAY_NEW_VIDEO: '@shop/PLAY_NEW_VIDEO'
 }
 
 export default types;
