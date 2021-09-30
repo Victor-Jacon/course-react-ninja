@@ -1,6 +1,6 @@
 import { Container } from '../App'
 
-import React, { Suspense, Component } from 'react'
+import React, { Suspense } from 'react'
 const ButtonLazy = React.lazy(() => import('./ButtonLazy'));
 
 export const PageSingleSuspense = () => {
@@ -26,20 +26,6 @@ export const PageMultipleSuspense = () => {
   )
 }
 
-export class ErrorBoundary extends Component {
 
-  state = { hasError: false }
-
-  static getDerivedStateFromError() {
-    return { hasError: true }
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <h1>Deu erro!</h1>
-    }
-    return this.props.children
-  }
-}
 
 export const ButtonMultipleSuspense = (color) => <button style={{ backgroundColor: color }}>Button 1</button>
