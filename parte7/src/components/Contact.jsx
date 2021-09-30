@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Switch, Route } from 'react-router-dom'
 import NavigationLinks from '../NavigationLinks'
 
 const Contact = () => {
   return (
     <>
-      <h1>Contact Page</h1>
-      <NavigationLinks />
+        <h1>Contact Page</h1>
+        <NavigationLinks />
     </>
   )
 }
