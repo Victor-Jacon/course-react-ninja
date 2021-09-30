@@ -1,10 +1,12 @@
 import styled from 'styled-components'
-import { PageMultipleSuspense } from './components/LearnSuspenseAndLazy'
+import { ErrorBoundary, PageMultipleSuspense } from './components/LearnSuspenseAndLazy'
 
 const App = () => {
   return (
     <>
-      <PageMultipleSuspense />
+      <ErrorBoundary>
+        <PageMultipleSuspense />
+      </ErrorBoundary>
     </>
   );
 }
